@@ -2,7 +2,7 @@ import torch
 from torch.autograd import Variable
 from torchvision import models
 from torchvision.models.vgg import model_urls
-model_urls['vgg19'] = model_urls['vgg19'].reaplce('https://', 'http://')
+model_urls['vgg19'] = model_urls['vgg19'].replace('https://', 'http://')
 
 import cv2
 import sys
@@ -122,8 +122,8 @@ if __name__ == '__main__':
 
     target = torch.nn.Softmax()(model(img))
     category = np.argmax(target.cpu().data.numpy())
-    print "Category with highest probability", category
-    print "Optimizing.. "
+    print("Category with highest probability: " + category)
+    print("Optimizing.. ")
 
     for i in range(max_iterations):
         upsampled_mask = upsample(mask)
